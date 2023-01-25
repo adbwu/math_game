@@ -16,9 +16,9 @@ class QuestionAnswer
 
   def check_answer(player_answer)
     if player_answer == @answer
-      puts "Correct!"
+      return true
     else
-      puts "Wrong! The correct answer is #{@answer}! You lose a life!"
+      return false
     end
   end
   
