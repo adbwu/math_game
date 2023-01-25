@@ -21,5 +21,10 @@ class QuestionAnswer
       return false
     end
   end
-  
-end
+
+  def quiz
+    q_and_a.generate_question
+    puts q_and_a.question
+    answer = gets.chomp.to_i
+    return check_answer(answer)
+  end
