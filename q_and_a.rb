@@ -2,7 +2,6 @@ class QuestionAnswer
   attr_accessor :question, :answer
 
   def initialize
-    puts "Question initialized"
   end
 
   def self.generate_question
