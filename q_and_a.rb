@@ -5,7 +5,7 @@ class QuestionAnswer
     puts "Question initialized"
   end
 
-  def generate_question
+  def self.generate_question
     operators = ["+", "-", "*"]
     num1 = rand(12)
     num2 = rand(12)
@@ -14,17 +14,18 @@ class QuestionAnswer
     @answer = num1.send(operator, num2)
   end
 
-  def check_answer(player_answer)
+  def self.check_answer(player_answer)
     if player_answer == @answer
       return true
-    else
-      return false
     end
+    return false
   end
 
-  def quiz
-    q_and_a.generate_question
-    puts q_and_a.question
-    answer = gets.chomp.to_i
-    return check_answer(answer)
+  def self.quiz
+    self.generate_question
+    puts @question
+    player_answer = gets.chomp.to_i
+    correct = self.check_answer(player_answer)
+    return { "player_answer": correct, "answer": @answer } 
   end
+end
